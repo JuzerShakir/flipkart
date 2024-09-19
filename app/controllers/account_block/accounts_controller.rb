@@ -1,5 +1,5 @@
 class AccountBlock::AccountsController < ApplicationController
-  before_action :set_account, only: [ :show, :update, :destroy ]
+  skip_before_action :authenticate_account!, only: :create
 
   def create
     @account = AccountBlock::Account.new(account_params)

@@ -1,4 +1,6 @@
 class SessionBlock::SessionsController < ApplicationController
+  skip_before_action :authenticate_account!
+
   def new
     @account = AccountBlock::Account.find_by_email(params[:email])
 
