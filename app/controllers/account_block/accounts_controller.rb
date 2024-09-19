@@ -9,6 +9,11 @@ class AccountBlock::AccountsController < ApplicationController
     end
   end
 
+  def show
+    @account = AccountBlock::Account.find(params[:id])
+    render json: @account, status: :ok
+  end
+
   private
 
   def account_params
