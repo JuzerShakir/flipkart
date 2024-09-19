@@ -21,6 +21,11 @@ class AccountBlock::AccountsController < ApplicationController
     end
   end
 
+  def destroy
+    @account = AccountBlock::Account.find(params[:id])
+    @account.destroy
+  end
+
   private
 
   def account_params
