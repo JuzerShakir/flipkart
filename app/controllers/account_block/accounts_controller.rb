@@ -14,9 +14,20 @@ class AccountBlock::AccountsController < ApplicationController
     render json: @account, status: :ok
   end
 
+  def update
+    @account = AccountBlock::Account.find(params[:id])
+    unless @account.update(update_params)
+      render json: { errors: @account.errors.full_messages }, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def account_params
     params.permit(:email, :password)
+  end
+
+  def update_params
+    params.permit(:id, :email, :password, :first_name, :last_name)
   end
 end
