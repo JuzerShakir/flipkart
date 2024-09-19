@@ -151,7 +151,7 @@ ActiveAdmin.setup do |config|
   # config.comments_order = 'created_at ASC'
   #
   # You can disable the menu item for the comments index page:
-  # config.comments_menu = false
+  config.comments_menu = false
   #
   # You can customize the comment menu:
   # config.comments_menu = { parent: 'Admin', priority: 1 }
@@ -185,7 +185,7 @@ ActiveAdmin.setup do |config|
   # You can run `bin/rails runner 'puts I18n.t("date.formats")'` to see the
   # available formats in your application.
   #
-  config.localize_format = :long
+  config.localize_format = :short
 
   # == Setting a Favicon
   #
@@ -274,8 +274,8 @@ ActiveAdmin.setup do |config|
   #     # Disable the links entirely
   #     admin.download_links = false
   #
-  #     # Only show XML & PDF options
-  #     admin.download_links = [:xml, :pdf]
+  #     # Only show CSV & PDF options
+      config.download_links = [:csv, :pdf]
   #
   #     # Enable/disable the links based on block
   #     #   (for example, with cancan)
@@ -288,7 +288,7 @@ ActiveAdmin.setup do |config|
   # Pagination is enabled by default for all resources.
   # You can control the default per page count for all resources here.
   #
-  # config.default_per_page = 30
+    config.default_per_page = [10, 20, 30]
   #
   # You can control the max per page count too.
   #
@@ -334,7 +334,7 @@ ActiveAdmin.setup do |config|
   # By default, the footer shows the current Active Admin version. You can
   # override the content of the footer here.
   #
-  # config.footer = 'my custom footer text'
+  config.footer = "Created with ❤️ by Juzer Shakir | Ruby #{RUBY_VERSION} & Rails #{Rails::VERSION::STRING}"
 
   # == Sorting
   #
