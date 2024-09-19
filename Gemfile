@@ -58,3 +58,5 @@ gem "active_model_serializers", "~> 0.10.14"
 gem "devise", "~> 4.9"
 
 gem "activeadmin", "~> 3.2"
+
+gem "active_admin_theme", "~> 1.1"
