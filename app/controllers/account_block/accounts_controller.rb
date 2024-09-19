@@ -1,4 +1,6 @@
 class AccountBlock::AccountsController < ApplicationController
+  before_action :set_account, only: [ :show, :update, :destroy ]
+
   def create
     @account = AccountBlock::Account.new(account_params)
 
@@ -10,23 +12,24 @@ class AccountBlock::AccountsController < ApplicationController
   end
 
   def show
-    @account = AccountBlock::Account.find(params[:id])
     render json: @account, status: :ok
   end
 
   def update
-    @account = AccountBlock::Account.find(params[:id])
     unless @account.update(update_params)
       render json: { errors: @account.errors.full_messages }, status: :unprocessable_entity
     end
   end
 
   def destroy
-    @account = AccountBlock::Account.find(params[:id])
     @account.destroy
   end
 
   private
+
+  def set_account
+    @account = AccountBlock::Account.find(params[:id])
+  end
 
   def account_params
     params.permit(:email, :password)
