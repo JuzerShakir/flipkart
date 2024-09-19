@@ -35,6 +35,7 @@ module Flipkart
     # Don't generate system test files.
     config.generators.system_tests = nil
 
+    # Do not check CSRF token in development env because :post, :put, :patch, :delete http verb actions raise CSRF token error
     config.action_controller.default_protect_from_forgery = false if ENV['RAILS_ENV'] == 'development'
   end
 end
