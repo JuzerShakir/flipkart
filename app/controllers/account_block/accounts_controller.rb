@@ -1,6 +1,11 @@
 class AccountBlock::AccountsController < ApplicationController
   skip_before_action :authenticate_account!, only: :create
 
+  def index
+    @accounts = AccountBlock::Account.all
+    render json: @accounts, status: :ok
+  end
+
   def create
     @account = AccountBlock::Account.new(account_params)
 
