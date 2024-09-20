@@ -31,6 +31,12 @@ gem 'bootsnap', '>= 1.4.4', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rspec-rails', '~> 6.1.0'
+end
+
+group :test do
+  # > 5.3.0v requires Ruby >= 3.0.5v
+  gem 'shoulda-matchers', '~> 5.3.0'
 end
 
 group :development do
@@ -62,3 +68,5 @@ gem "activeadmin", "~> 3.2"
 gem "active_admin_theme", "~> 1.1"
 
 gem "faker", "~> 3.4"
+
+gem "validates_email_format_of", "~> 1.8"
