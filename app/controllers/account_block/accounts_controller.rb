@@ -11,6 +11,8 @@ class AccountBlock::AccountsController < ApplicationController
 
     if @account.save
       render json: @account, status: :created
+      # Welcome the user
+      WelcomeAccountMailer.with(account: @account).welcome_account.deliver_later
     else
       render json: { errors: @account.errors.full_messages }, status: :unprocessable_entity
     end
