@@ -17,8 +17,8 @@
 class AccountBlock::Account < ApplicationRecord
   has_secure_password
 
-  validates :email, presence: true, uniqueness: true
-  validates :password, presence: true
+  validates :email, presence: true, uniqueness: true, email_format: true
+  validates :password, presence: true, length: { minimum: 6 }
 
   def self.ransackable_attributes(auth_object = nil)
     ["email", "first_name", "last_name"]
