@@ -60,3 +60,5 @@ gem "devise", "~> 4.9"
 gem "activeadmin", "~> 3.2"
 
 gem "active_admin_theme", "~> 1.1"
+
+gem "faker", "~> 3.4"
