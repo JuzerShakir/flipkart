@@ -19,4 +19,12 @@ class AccountBlock::Account < ApplicationRecord
 
   validates :email, presence: true, uniqueness: true
   validates :password, presence: true
+
+  def self.ransackable_attributes(auth_object = nil)
+    ["email", "first_name", "last_name"]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    []
+  end
 end
