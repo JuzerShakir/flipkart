@@ -10,4 +10,8 @@
 #  updated_at  :datetime         not null
 #
 class ProductBlock::Product < ApplicationRecord
+
+  def self.ransackable_attributes(auth_object = nil)
+    ["title", "description", "price"]
+  end
 end
