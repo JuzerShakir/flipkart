@@ -17,4 +17,15 @@ if Rails.env.development?
       password: '123456'
     )
   end
+
+  # Product
+  ProductBlock::Product.destroy_all
+
+  20.times do |i|
+    ProductBlock::Product.create(
+      title: "title #{i}",
+      description: "description for product #{i} should be more than 50 characters",
+      price: (1..10000).to_a.sample
+    )
+  end
 end
