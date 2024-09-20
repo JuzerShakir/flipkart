@@ -13,8 +13,10 @@ if Rails.env.development?
 
   5.times do |i|
     AccountBlock::Account.create(
-      email: "acc#{i + 1}@gmail.com",
-      password: '123456'
+      email: Faker::Internet.email(domain: 'gmail.com'),
+      password: '123456',
+      first_name: Faker::Name.first_name,
+      last_name: Faker::Name.last_name
     )
   end
 
@@ -23,9 +25,9 @@ if Rails.env.development?
 
   20.times do |i|
     ProductBlock::Product.create(
-      title: "title #{i}",
-      description: "description for product #{i} should be more than 50 characters",
-      price: (1..10000).to_a.sample
+      title: "#{Faker::Device.manufacturer} #{Faker::Device.model_name}",
+      description: Faker::Lorem.paragraph_by_chars(number: 200, supplemental: false),
+      price: Faker::Number.within(range: 100..9999)
     )
   end
 end
