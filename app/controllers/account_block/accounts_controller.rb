@@ -7,7 +7,7 @@ class AccountBlock::AccountsController < ApplicationController
   end
 
   def create
-    @account = AccountBlock::Account.new(account_params)
+    @account = AccountBlock::Account.new(create_params)
 
     if @account.save
       render json: @account, status: :created
@@ -32,7 +32,7 @@ class AccountBlock::AccountsController < ApplicationController
 
   private
 
-  def account_params
+  def create_params
     params.permit(:email, :password)
   end
 
