@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe AccountBlock::Account, type: :model do
+  subject { build(:account) }
+
   describe "validations" do
     context "for email" do
       # email address
