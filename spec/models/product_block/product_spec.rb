@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe ProductBlock::Product, type: :model do
+  subject { build(:product) }
+
   describe "validations" do
     context "for title" do
       it { should validate_presence_of(:title) }
